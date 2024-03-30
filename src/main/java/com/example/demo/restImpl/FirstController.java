@@ -1,11 +1,25 @@
 package com.example.demo.restImpl;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class FirstController {
 
+    private final StudentRepository repository;
+
+    public FirstController(StudentRepository repository) {
+        this.repository = repository;
+    }
+
+    @PostMapping("/students")
+    public Student post(
+            @RequestBody Student student
+    ) {
+        return repository.save(student);
+    }
+
+
+/*
     //@GetMapping("/hello")
     @ResponseStatus(HttpStatus.OK)
     public String getHello(){
@@ -51,4 +65,8 @@ public class FirstController {
     ){
         return "hello "+ userName + " " + userLastName;
     }
+
+     */
+
+
 }

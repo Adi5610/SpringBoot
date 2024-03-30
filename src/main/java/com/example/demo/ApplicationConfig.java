@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 
 //configuration annotation describe, it contains bean method
@@ -13,6 +14,7 @@ public class ApplicationConfig {
     //this bean will be instantiated
     @Bean
     //@Qualifier("bean1")
+    //@Profile("dev")
     public MyFirstApp myFirstApp(){
         return new MyFirstApp("hello first bean");
     }

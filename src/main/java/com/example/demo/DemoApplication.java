@@ -14,7 +14,9 @@ public class DemoApplication {
 		//MyFirstApp myFirstApp = ctx.getBean(MyFirstApp.class);
 		MyFirstService myFirstService = ctx.getBean(MyFirstService.class);
 
-		System.out.print(myFirstService.tellStory());
+		System.out.println(myFirstService.tellStory());
+		System.out.println(myFirstService.getMyName());
+		System.out.println(myFirstService.getCustomName());
 
 	}
 
