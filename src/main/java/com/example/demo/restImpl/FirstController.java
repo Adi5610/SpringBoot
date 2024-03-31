@@ -2,6 +2,9 @@ package com.example.demo.restImpl;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 public class FirstController {
 
@@ -17,6 +20,38 @@ public class FirstController {
     ) {
         return repository.save(student);
     }
+
+    @GetMapping("/students")
+    public List<Student> findAllStudents()
+    {
+        return repository.findAll();
+    }
+
+    @GetMapping("/students/{student-id}")
+    public Optional<Student> findStudent(
+            @PathVariable("student-id") Integer id
+    )
+    {
+        return repository.findById(id);
+    }
+
+    @GetMapping("/students/search/{student-name}")
+    public List<Student> findStudentByFirstName(
+            @PathVariable("student-name") String name
+    )
+    {
+        return repository.findAllByFirstNameContaining(name);
+    }
+
+    @DeleteMapping("/students/{student-id}")
+    public void deleteStudentById(
+            @PathVariable("student-id") Integer id
+    )
+    {
+        repository.deleteById(id);
+    }
+
+
 
 
 /*
