@@ -15,17 +15,44 @@ public class FirstController {
     }
 
     @PostMapping("/students")
-    public Student post(
-            @RequestBody Student student
+    public ResponseStudentDto post(
+            @RequestBody StudentDto dto
     ) {
-        return repository.save(student);
+        var student = toStudent(dto);
+        var savedStudent = repository.save(student);
+        return toResponseStudentDto(savedStudent);
+    }
+
+    private Student toStudent(StudentDto dto){
+        var student = new Student();
+        student.setFirstName(dto.firstname());
+        student.setLastName(dto.lastname());
+        student.setEmail(dto.email());
+        var school = new School();
+        school.setId(dto.schoolId());
+
+        student.setSchool(school);
+        return student;
+
+    }
+    private ResponseStudentDto toResponseStudentDto(Student student){
+
+        return new ResponseStudentDto(
+                student.getFirstName(),
+                student.getLastName(),
+                student.getEmail()
+        );
+
     }
 
     @GetMapping("/students")
     public List<Student> findAllStudents()
     {
+
         return repository.findAll();
     }
+
+
 
     @GetMapping("/students/{student-id}")
     public Optional<Student> findStudent(
@@ -33,6 +60,7 @@ public class FirstController {
     )
     {
         return repository.findById(id);
+
     }
 
     @GetMapping("/students/search/{student-name}")
