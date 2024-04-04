@@ -1,8 +1,8 @@
-package com.example.demo.restImpl;
+package com.example.demo.restImpl.dto;
 
 public record ResponseStudentDto(
         String firstName,
-        String lastname,
+        String lastName,
         String email
 ) {
 }

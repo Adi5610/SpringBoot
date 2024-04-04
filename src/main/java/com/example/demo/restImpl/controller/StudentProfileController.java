@@ -1,5 +1,7 @@
-package com.example.demo.restImpl;
+package com.example.demo.restImpl.controller;
 
+import com.example.demo.restImpl.models.StudentProfile;
+import com.example.demo.restImpl.repository.StudentProfileRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,4 @@
-package com.example.demo.restImpl;
+package com.example.demo.restImpl.models;
 
 import jakarta.persistence.*;
 

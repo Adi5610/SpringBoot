@@ -3,12 +3,13 @@ package com.example.demo;
 
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class MyFirstApp {
 
-    private String var;
+    public String var;
 
     public MyFirstApp(String var) {
+
         this.var = var;
     }
 

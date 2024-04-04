@@ -1,4 +1,4 @@
-package com.example.demo.restImpl;
+package com.example.demo.restImpl.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -17,7 +17,7 @@ public class Student {
             unique = true
     )
     private String email;
-    private int age;
+    private int age ;
 
 
 

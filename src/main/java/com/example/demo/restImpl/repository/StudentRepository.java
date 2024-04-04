@@ -1,5 +1,6 @@
-package com.example.demo.restImpl;
+package com.example.demo.restImpl.repository;
 
+import com.example.demo.restImpl.models.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
